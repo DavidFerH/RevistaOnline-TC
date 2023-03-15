@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticulosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [ArticulosController::class, 'index']) -> name('personas.index');
+Route::get('/create', [ArticulosController::class, 'create']) -> name('personas.create');
