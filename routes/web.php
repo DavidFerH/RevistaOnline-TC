@@ -18,5 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ArticulosController::class, 'index']) -> name('personas.index');
-Route::get('/create', [ArticulosController::class, 'create']) -> name('personas.create');
+Route::get('/', [ArticulosController::class, 'index']) -> name('revista.index');
+Route::get('/create', [ArticulosController::class, 'create']) -> name('revista.create');
