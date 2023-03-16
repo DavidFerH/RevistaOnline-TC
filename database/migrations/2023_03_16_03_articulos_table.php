@@ -12,10 +12,12 @@ return new class extends Migration {
      */
     public function up() {
         Schema::create('articulos', function(Blueprint $table) {
-            $table->id('COD_ART');
+            $table->increments('COD_ART');
             $table->string('TITULO');
             $table->string('CONTENIDO');
-            $table->integer('COD_REV');
+            $table->unsignedInteger('COD_REV');
+
+            $table->foreign('COD_REV')->references('COD_REV')->on('revistas');
         });
     }
 

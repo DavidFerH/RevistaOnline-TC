@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\articulos;
+use App\Models\autor;
 use Illuminate\Http\Request;
 
-class ArticulosController extends Controller
+class AutorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,6 @@ class ArticulosController extends Controller
     public function index()
     {
         //
-        return view('welcome');
     }
 
     /**
@@ -26,8 +25,6 @@ class ArticulosController extends Controller
     public function create()
     {
         //
-           // return view('createEntry');
-           return('Añadir vista de create entry');
     }
 
     /**
@@ -44,10 +41,10 @@ class ArticulosController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\articulos  $articulos
+     * @param  \App\Models\autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function show(articulos $articulos)
+    public function show(autor $autor)
     {
         //
     }
@@ -55,10 +52,10 @@ class ArticulosController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\articulos  $articulos
+     * @param  \App\Models\autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function edit(articulos $articulos)
+    public function edit(autor $autor)
     {
         //
     }
@@ -67,10 +64,10 @@ class ArticulosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\articulos  $articulos
+     * @param  \App\Models\autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, articulos $articulos)
+    public function update(Request $request, autor $autor)
     {
         //
     }
@@ -78,10 +75,10 @@ class ArticulosController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\articulos  $articulos
+     * @param  \App\Models\autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(articulos $articulos)
+    public function destroy(autor $autor)
     {
         //
     }
