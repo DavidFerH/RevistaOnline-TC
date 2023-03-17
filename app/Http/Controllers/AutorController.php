@@ -14,7 +14,10 @@ class AutorController extends Controller
      */
     public function index()
     {
-        //
+        
+        $autores = Autor::all();
+        return view('autor-index', compact('autores'));
+        
     }
 
     /**
@@ -25,6 +28,7 @@ class AutorController extends Controller
     public function create()
     {
         //
+        return view('createAutor');
     }
 
     /**
@@ -36,6 +40,15 @@ class AutorController extends Controller
     public function store(Request $request)
     {
         //
+        $autor = new Autor();
+        $autor->dni = $request->post('DNI');
+        $autor->nombre = $request->post('NOMBRE');
+        $autor->apellidos = $request->post('APELLIDOS');
+        $autor->descripcion = $request->post('DESCRIPCION');
+        $autor->save();
+
+        return redirect()->route("autor-index.index")->with("success", "Autor añadido correctamente");
+
     }
 
     /**
@@ -58,6 +71,7 @@ class AutorController extends Controller
     public function edit(autor $autor)
     {
         //
+        return view('actualizaAutor');
     }
 
     /**
@@ -81,5 +95,6 @@ class AutorController extends Controller
     public function destroy(autor $autor)
     {
         //
+        return view('eliminaAutor');
     }
 }

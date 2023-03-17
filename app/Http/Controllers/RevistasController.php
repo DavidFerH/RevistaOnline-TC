@@ -15,6 +15,8 @@ class RevistasController extends Controller
     public function index()
     {
         //
+        $revistas = Revistas::all();
+        return view('revista-index', compact('revistas'));
     }
 
     /**
@@ -25,6 +27,7 @@ class RevistasController extends Controller
     public function create()
     {
         //
+        return view('createRevista');
     }
 
     /**
@@ -36,6 +39,16 @@ class RevistasController extends Controller
     public function store(Request $request)
     {
         //
+        $revista = new Revista();
+        $revista->cod_rev = $request->post('COD_REV');
+        $revista->titulo = $request->post('TITULO');
+        $revista->numero = $request->post('NUMERO');
+        $revista->editorial = $request->post('EDITORIAL');
+        $revista->fecha = $request->post('FECHA');
+        $revista->portada = $request->post('PORTADA');
+        $revista->save();
+
+        return redirect()->route("revista.index")->with("success", "Revista añadida correctamente");
     }
 
     /**

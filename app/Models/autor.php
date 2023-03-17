@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class autor extends Model
 {
     use HasFactory;
+    protected $table = 'autor'; //sino eloquent mete la s al final, autors.
 }

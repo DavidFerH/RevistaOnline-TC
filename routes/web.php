@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArticulosController;
+use App\Http\Controllers\AutorController;
+use App\Http\Controllers\RevistasController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArticulosController::class, 'index']) -> name('revista.index');
 Route::get('/create', [ArticulosController::class, 'create']) -> name('revista.create');
+
+Route::get('/autor', [AutorController::class, 'index']) -> name('autor-index.index');
+Route::get('/autor/create', [AutorController::class, 'create']) -> name('createAutor.create');
+Route::post('/autor/store', [AutorController::class, 'store']) -> name('createAutor.store');
+
+Route::get('/revista', [RevistasController::class, 'index']) -> name('revista-index.index');
+Route::post('/revista/store', [RevistasController::class, 'store']) -> name('revista.store');
+Route::get('/revista/create', [RevistasController::class, 'create']) -> name('revista.create');
