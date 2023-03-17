@@ -24,9 +24,7 @@ class RevistasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
         return view('createRevista');
     }
 
@@ -36,8 +34,7 @@ class RevistasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
         $revista = new Revista();
         $revista->cod_rev = $request->post('COD_REV');
