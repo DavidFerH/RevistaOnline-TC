@@ -25,6 +25,7 @@ class ArticulosController extends Controller {
         $articulo->contenido = $request->post('article');
         //FALTA EL SELECT DE REVISTAS AQUÍ
         $articulo->cod_rev = 1; //$request->post('COD_REV');
+        $articulo->autor()->attach($articulo->cod_art);
 
         $articulo->save();
 

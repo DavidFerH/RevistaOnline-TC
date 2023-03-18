@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('EDITORIAL');
             $table->integer('NUMERO');
             $table->date('FECHA');
-            $table->text('PORTADA');
+            $table->text('PORTADA')->nullable();
             $table->timestamps();
 
         });

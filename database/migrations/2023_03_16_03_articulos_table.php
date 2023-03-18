@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->increments('COD_ART');
             $table->string('TITULO');
             $table->string('CONTENIDO');
-            $table->unsignedInteger('COD_REV');
+            $table->unsignedInteger('COD_REV')->nullable();
 
             $table->foreign('COD_REV')->references('COD_REV')->on('revistas');
         });
