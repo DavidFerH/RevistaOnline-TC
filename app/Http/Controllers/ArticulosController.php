@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\articulos;
 use App\Models\autor;
 use App\Models\revistas;
-use App\Models\autor;
 use Illuminate\Http\Request;
 
 class ArticulosController extends Controller {
