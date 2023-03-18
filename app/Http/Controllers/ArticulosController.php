@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\articulos;
+use App\Models\autor;
 use App\Models\revistas;
 use App\Models\autor;
 use Illuminate\Http\Request;
@@ -10,13 +11,12 @@ use Illuminate\Http\Request;
 class ArticulosController extends Controller {
     public function index() {
         $articles = Articulos::all();
-        $magazines = revistas::all();
-        return view('index', compact('articles', 'magazines'));
+        return view('articulo-index', compact('articles'));
     }
 
     public function create() {
-        $autores = autor::all();
-        return view('createEntry', compact('autores'));        
+        $authors = autor::all();
+        return view('articulo-create', compact('authors'));      
     }
 
     public function store(Request $request) {

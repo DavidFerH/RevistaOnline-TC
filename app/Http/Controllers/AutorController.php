@@ -9,15 +9,12 @@ use Illuminate\Http\Request;
 class AutorController extends Controller {
     public function index() {
         $autores = autor::all();
-        $revistas = Revistas::all();
 
-        return view('autor-index', compact('autores', 'revistas')); 
+        return view('autor-index', compact('autores')); 
     }
 
     public function create() {
-        $autores = autor::all();
-        return view('createEntry', compact('autores'));     
-        
+        return view('autor-create');
     }
 
     public function store(Request $request) {
@@ -29,7 +26,6 @@ class AutorController extends Controller {
         $autor->save();
 
         return redirect()->route("autor.index")->with("success", "Autor añadido correctamente");
-
     }
 
     public function show(autor $autor) {
