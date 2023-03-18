@@ -34,7 +34,7 @@
                         <div class="col-5">
                             
                         </div>
-                       <!-- <div class="col-5 mt-2">
+                        <!-- <div class="col-5 mt-2">
                             <input type="date" class="form-control" name="publicationDate" placeholder="Fecha de publicacion" aria-label="Fecha de publicacion" required>
                         </div> EN EL MODELO NO HAY FECHA PUB PARA ARTICULOS-->
                         <div class="col-5 mt-2"></div>

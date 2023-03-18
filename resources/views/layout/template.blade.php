@@ -37,7 +37,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publicaciones</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="articles.php">Articulos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('articulo.index') }}">Articulos</a></li>
                                 <li><a class="dropdown-item" href="magazines.php">Revistas</a></li>
                             </ul>
                         </li>

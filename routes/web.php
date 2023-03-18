@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArticulosController;
 use App\Http\Controllers\AutorController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RevistasController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ArticulosController::class, 'index']) -> name('index.index');
+Route::get('/', [IndexController::class, 'index']) -> name('index.index');
 
 Route::get('/articulos', [ArticulosController::class, 'index']) -> name('articulo.index');
 Route::get('/articulo/create', [ArticulosController::class, 'create']) -> name('articulo.create');
