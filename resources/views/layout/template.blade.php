@@ -22,23 +22,34 @@
     <body><!-- NavBar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('revista.index') }}"><img src="{{ url('images/logo.png') }}" alt="Logo" style="width: 50px;"></a>
+                <a class="navbar-brand" href="{{ route('index.index') }}"><img src="{{ url('images/logo.png') }}" alt="Logo" style="width: 50px;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="{{ route('revista.index') }}">Home</a>
+                            <a class="nav-link" aria-current="page" href="{{ route('index.index') }}">Home</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('revista.create') }}">Publicar</a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publicaciones</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="articles.php">Articulos</a></li>
                                 <li><a class="dropdown-item" href="magazines.php">Revistas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administración</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ route('autor.create') }}">Creación de autores</a></li>
+                                <li><a class="dropdown-item" href="{{ route('articulo.create') }}">Creación de articulos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('revista.create') }}">Creación de revistas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('autor.store') }}">Gestión de autores</a></li>
+                                <li><a class="dropdown-item" href="{{ route('articulo.store') }}">Gestión de articulos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('revista.store') }}">Gestión de revistas</a></li>
                             </ul>
                         </li>
                     </ul>

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\articulos;
+use App\Models\revistas;
 use Illuminate\Http\Request;
 
 class ArticulosController extends Controller {
     public function index() {
         $articles = Articulos::all();
-        return view('index', compact('articles'));
+        $magazines = revistas::all();
+        return view('index', compact('articles', 'magazines'));
     }
 
     public function create() {

@@ -20,13 +20,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [ArticulosController::class, 'index']) -> name('revista.index');
-Route::get('/create', [ArticulosController::class, 'create']) -> name('revista.create');
+Route::get('/', [ArticulosController::class, 'index']) -> name('index.index');
 
-Route::get('/autor', [AutorController::class, 'index']) -> name('autor-index.index');
-Route::get('/autor/create', [AutorController::class, 'create']) -> name('createAutor.create');
-Route::post('/autor/store', [AutorController::class, 'store']) -> name('createAutor.store');
+Route::get('/articulos', [ArticulosController::class, 'index']) -> name('articulo.index');
+Route::get('/articulo/create', [ArticulosController::class, 'create']) -> name('articulo.create');
+Route::get('/articulo/store', [ArticulosController::class, 'create']) -> name('articulo.store');
 
-Route::get('/revista', [RevistasController::class, 'index']) -> name('revista-index.index');
-Route::post('/revista/store', [RevistasController::class, 'store']) -> name('revista.store');
+Route::get('/autor', [AutorController::class, 'index']) -> name('autor.index');
+Route::get('/autor/create', [AutorController::class, 'create']) -> name('autor.create');
+Route::post('/autor/store', [AutorController::class, 'store']) -> name('autor.store');
+
+Route::get('/revista', [RevistasController::class, 'index']) -> name('revista.index');
 Route::get('/revista/create', [RevistasController::class, 'create']) -> name('revista.create');
+Route::post('/revista/store', [RevistasController::class, 'store']) -> name('revista.store');

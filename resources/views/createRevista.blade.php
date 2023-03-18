@@ -27,7 +27,9 @@
                         <div class="col-5">
                         <label for="author">Seleccione el autor</label>
                         <select id="author" class="form-select" name="author" aria-label="Default select example">
-                            {{-- Obtener autores de la bbdd --}}
+                            @foreach ($authors as $author)
+                                <option value="{{ $author -> DNI }}">{{ $author -> NOMBRE . " " . $author->APELLIDOS }}</option>
+                            @endforeach
                         </select>
                         </div>
                         <div class="col-5">

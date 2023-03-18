@@ -12,9 +12,7 @@ class RevistasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
         $revistas = Revistas::all();
         return view('revista-index', compact('revistas'));
     }
@@ -25,7 +23,7 @@ class RevistasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('createRevista');
+        return view('createEntry');
     }
 
     /**
@@ -36,7 +34,7 @@ class RevistasController extends Controller
      */
     public function store(Request $request) {
         //
-        $revista = new Revista();
+        $revista = new Revistas();
         $revista->cod_rev = $request->post('COD_REV');
         $revista->titulo = $request->post('TITULO');
         $revista->numero = $request->post('NUMERO');
