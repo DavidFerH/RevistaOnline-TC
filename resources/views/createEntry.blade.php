@@ -28,7 +28,9 @@
                         <div class="col-5">
                         <label for="author">Seleccione el autor</label>
                         <select id="author" class="form-select" name="author" aria-label="Default select example">
-                            
+                        @foreach ($autores as $autor)
+                            <option value= {{$autor->COD_ART}} >{{$autor->NOMBRE}}</option>         
+                        @endforeach
                         </select>
                         </div>
                         <div class="col-5">

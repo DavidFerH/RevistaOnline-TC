@@ -15,7 +15,9 @@ class AutorController extends Controller {
     }
 
     public function create() {
-        return view('createEntry');
+        $autores = autor::all();
+        return view('createEntry', compact('autores'));     
+        
     }
 
     public function store(Request $request) {

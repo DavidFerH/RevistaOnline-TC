@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\articulos;
 use App\Models\revistas;
+use App\Models\autor;
 use Illuminate\Http\Request;
 
 class ArticulosController extends Controller {
@@ -14,7 +15,8 @@ class ArticulosController extends Controller {
     }
 
     public function create() {
-        return view('createEntry');        
+        $autores = autor::all();
+        return view('createEntry', compact('autores'));        
     }
 
     public function store(Request $request) {
