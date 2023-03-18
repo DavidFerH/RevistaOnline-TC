@@ -23,7 +23,8 @@
                 <div class="tab-pane fade show active" id="v-pills-article" role="tabpanel" aria-labelledby="v-pills-article-tab">
                     <h3>Formulario para añadir un nuevo artículo científico</h3>
                     <!-- Form to add a new article -->
-                    <form class="row needs-validation justify-content-center mt-4" action="PHP Processors/addArticle.php" method="post">
+                    <form class="row needs-validation justify-content-center mt-4" action="{{route('articulo.store')}}" method="post">
+                        @csrf 
                         <div class="col-5">
                         <label for="author">Seleccione el autor</label>
                         <select id="author" class="form-select" name="author" aria-label="Default select example">
@@ -33,9 +34,9 @@
                         <div class="col-5">
                             
                         </div>
-                        <div class="col-5 mt-2">
+                       <!-- <div class="col-5 mt-2">
                             <input type="date" class="form-control" name="publicationDate" placeholder="Fecha de publicacion" aria-label="Fecha de publicacion" required>
-                        </div>
+                        </div> EN EL MODELO NO HAY FECHA PUB PARA ARTICULOS-->
                         <div class="col-5 mt-2"></div>
                         <div class="col-10 mt-2">
                             <input type="text" class="form-control" name="title" placeholder="Titulo del articulo" aria-label="Titulo del articulo" required>
@@ -55,7 +56,8 @@
                 <div class="tab-pane fade" id="v-pills-magazine" role="tabpanel" aria-labelledby="v-pills-magazine-tab">
                     <h3>Formulario para añadir una nueva revista científica</h3>
                     <!-- Form to add a new magazine -->
-                    <form class="row needs-validation justify-content-center mt-4" action="PHP Processors/addMagazine.php" method="post" enctype="multipart/form-data">
+                    <form class="row needs-validation justify-content-center mt-4" action="{{route('revista.store')}} " method="post" enctype="multipart/form-data">
+                        @csrf 
                         <!-- Name and surname of the author -->
                         <div class="col-4">
                             <input type="text" class="form-control" name="title" placeholder="Titulo" aria-label="Titulo" required>
@@ -71,7 +73,7 @@
                         </div>
                         <div class="col-7 mt-2"></div>
                         <div class="col-4 mt-2">
-                            <input type="file" class="form-control" name="coverImage" placeholder="Portada" aria-label="Portada">
+                            <input type="file" class="form-control" name="coverImage" placeholder="Portada" aria-label="Portada"    >
                         </div>
                         <div class="col-7 mt-2"></div>
                         <div class="col-4">
@@ -83,7 +85,8 @@
                 <div class="tab-pane fade" id="v-pills-authors" role="tabpanel" aria-labelledby="v-pills-authors-tab">
                     <h3>Formulario para añadir un nuevo autor</h3>
                     <!-- Form to add a new author -->
-                    <form class="row needs-validation justify-content-center mt-4" action="PHP Processors/addAutor.php" method="post" enctype="multipart/form-data">
+                    <form class="row needs-validation justify-content-center mt-4" action="{{route('autor.store')}}" method="post" enctype="multipart/form-data">
+                        @csrf 
                         <!-- Name and surname of the author -->
                         <div class="col-4">
                             <input type="text" class="form-control" name="DNI" placeholder="DNI" aria-label="DNI" required>

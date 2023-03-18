@@ -47,9 +47,9 @@
                                 <li><a class="dropdown-item" href="{{ route('autor.create') }}">Creación de autores</a></li>
                                 <li><a class="dropdown-item" href="{{ route('articulo.create') }}">Creación de articulos</a></li>
                                 <li><a class="dropdown-item" href="{{ route('revista.create') }}">Creación de revistas</a></li>
-                                <li><a class="dropdown-item" href="{{ route('autor.store') }}">Gestión de autores</a></li>
-                                <li><a class="dropdown-item" href="{{ route('articulo.store') }}">Gestión de articulos</a></li>
-                                <li><a class="dropdown-item" href="{{ route('revista.store') }}">Gestión de revistas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('autor.index') }}">Gestión de autores</a></li>
+                                <li><a class="dropdown-item" href="{{ route('articulo.index') }}">Gestión de articulos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('revista.index') }}">Gestión de revistas</a></li>
                             </ul>
                         </li>
                     </ul>

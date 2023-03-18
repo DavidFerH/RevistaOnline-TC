@@ -24,7 +24,7 @@ Route::get('/', [ArticulosController::class, 'index']) -> name('index.index');
 
 Route::get('/articulos', [ArticulosController::class, 'index']) -> name('articulo.index');
 Route::get('/articulo/create', [ArticulosController::class, 'create']) -> name('articulo.create');
-Route::get('/articulo/store', [ArticulosController::class, 'create']) -> name('articulo.store');
+Route::post('/articulo/store', [ArticulosController::class, 'store']) -> name('articulo.store');
 
 Route::get('/autor', [AutorController::class, 'index']) -> name('autor.index');
 Route::get('/autor/create', [AutorController::class, 'create']) -> name('autor.create');

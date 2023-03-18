@@ -14,11 +14,22 @@ class ArticulosController extends Controller {
     }
 
     public function create() {
-        return('Añadir vista de create entry');
+        return view('createEntry');        
     }
 
     public function store(Request $request) {
         //
+        $articulo = new Articulos();
+        $articulo->cod_art = $request->post('COD_ART');
+        $articulo->titulo = $request->post('title');
+        $articulo->contenido = $request->post('article');
+        //FALTA EL SELECT DE REVISTAS AQUÍ
+        $articulo->cod_rev = 1; //$request->post('COD_REV');
+
+        $articulo->save();
+
+        return redirect()->route("articulo.index")->with("success", "Artículo añadido correctamente");
+
     }
 
     public function show(articulos $articulos) {

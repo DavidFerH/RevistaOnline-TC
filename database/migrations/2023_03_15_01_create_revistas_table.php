@@ -17,6 +17,7 @@ return new class extends Migration
             $table->increments('COD_REV');
             $table->string('TITULO');
             $table->string('EDITORIAL');
+            $table->integer('NUMERO');
             $table->date('FECHA');
             $table->text('PORTADA');
             $table->timestamps();

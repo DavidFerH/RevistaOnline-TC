@@ -8,25 +8,25 @@ use Illuminate\Http\Request;
 
 class AutorController extends Controller {
     public function index() {
-        $authors = autor::all();
-        $magazines = Revistas::all();
+        $autores = autor::all();
+        $revistas = Revistas::all();
 
-        return view('createEntry', compact('authors', 'magazines'));
+        return view('autor-index', compact('autores', 'revistas')); 
     }
 
     public function create() {
-        return view('createAutor');
+        return view('createEntry');
     }
 
     public function store(Request $request) {
         $autor = new Autor();
         $autor->dni = $request->post('DNI');
-        $autor->nombre = $request->post('NOMBRE');
-        $autor->apellidos = $request->post('APELLIDOS');
-        $autor->descripcion = $request->post('DESCRIPCION');
+        $autor->nombre = $request->post('nombre');
+        $autor->apellidos = $request->post('apellidos');
+        $autor->descripcion = $request->post('descripcion');
         $autor->save();
 
-        return redirect()->route("autor-index.index")->with("success", "Autor añadido correctamente");
+        return redirect()->route("autor.index")->with("success", "Autor añadido correctamente");
 
     }
 

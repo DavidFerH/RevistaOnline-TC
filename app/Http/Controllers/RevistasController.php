@@ -33,14 +33,14 @@ class RevistasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        //
+        
         $revista = new Revistas();
         $revista->cod_rev = $request->post('COD_REV');
-        $revista->titulo = $request->post('TITULO');
-        $revista->numero = $request->post('NUMERO');
-        $revista->editorial = $request->post('EDITORIAL');
-        $revista->fecha = $request->post('FECHA');
-        $revista->portada = $request->post('PORTADA');
+        $revista->titulo = $request->post('title');
+        $revista->numero = $request->post('number');
+        $revista->editorial = $request->post('editorial');
+        $revista->fecha = $request->post('publicationDate');
+        $revista->portada = "testfile"; //$request->post('coverImage'); TO-DO CREAR UPLOAD PARA LA IMAGEN
         $revista->save();
 
         return redirect()->route("revista.index")->with("success", "Revista añadida correctamente");

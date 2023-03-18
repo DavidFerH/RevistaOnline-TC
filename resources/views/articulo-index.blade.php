@@ -10,18 +10,18 @@
     <div class="row">
         <div class="col-12 mt-2">
             <div class="text-center">
-                <h3>AUTORES</h3>
+                <h3>ARTICULOS</h3>
             </div>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12 mt-2">
-            @foreach ($autores as $autor)
+            @foreach ($articulos as $articulo)
                 <div class="card mt-2 mx-auto" style="width: 66rem;">
                     <div class="card-body">
-                        <h5 class="card-title text-center">{{ $autor->DNI}}</h5>
-                        <p class="card-text">{{ $autor->NOMBRE }}</p>
+                        <h5 class="card-title text-center">{{ $articulo->TITULO}}</h5>
+                        <p class="card-text">{{ $articulo->NUMERO }}</p>
                     </div>
                 </div>
             @endforeach
