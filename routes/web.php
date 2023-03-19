@@ -26,6 +26,10 @@ Route::get('/', [IndexController::class, 'index']) -> name('index.index');
 Route::get('/articulos', [ArticulosController::class, 'index']) -> name('articulo.index');
 Route::get('/articulo/create', [ArticulosController::class, 'create']) -> name('articulo.create');
 Route::post('/articulo/store', [ArticulosController::class, 'store']) -> name('articulo.store');
+Route::post('/articulo/edit/{DNI}', [ArticulosController::class, 'edit']) -> name('articulo.edit');
+Route::post('/articulo/update/{DNI}', [ArticulosController::class, 'update']) -> name('articulo.update');
+Route::delete('/articulo/destroy/{DNI}', [ArticulosController::class, 'destroy']) -> name('articulo.destroy');
+
 
 Route::get('/autor', [AutorController::class, 'index']) -> name('autor.index');
 Route::get('/autor/create', [AutorController::class, 'create']) -> name('autor.create');
@@ -37,3 +41,6 @@ Route::delete('/autor/destroy/{DNI}', [AutorController::class, 'destroy']) -> na
 Route::get('/revista', [RevistasController::class, 'index']) -> name('revista.index');
 Route::get('/revista/create', [RevistasController::class, 'create']) -> name('revista.create');
 Route::post('/revista/store', [RevistasController::class, 'store']) -> name('revista.store');
+Route::post('/revista/edit/{DNI}', [RevistasController::class, 'edit']) -> name('revista.edit');
+Route::post('/revista/update/{DNI}', [RevistasController::class, 'update']) -> name('revista.update');
+Route::delete('/revista/destroy/{DNI}', [RevistasController::class, 'destroy']) -> name('revista.destroy');

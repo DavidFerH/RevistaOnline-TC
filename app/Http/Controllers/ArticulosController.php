@@ -6,6 +6,7 @@ use App\Models\articulos;
 use App\Models\autor;
 use App\Models\revistas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticulosController extends Controller {
     public function index() {
@@ -38,15 +39,30 @@ class ArticulosController extends Controller {
         //
     } 
 
-    public function edit(articulos $articulos) {
-        //
+    public function edit($COD_ART) {
+
+        $articulo = DB::table('articulos')->where('COD_ART', $COD_ART)->first();
+        return view('articulo-update', compact('articulo'));
+
     }
 
-    public function update(Request $request, articulos $articulos) {
-        //
+    public function update(Request $request, $COD_ART) {
+        
+        $titulo = $request->post('TITULO');
+        $contenido = $request->post('CONTENIDO');
+
+        Articulos::where('COD_ART', $COD_ART)->update([
+            'TITULO' => $titulo,
+            'CONTENIDO' => $contenido,
+        ]);
+
+        return redirect()->route("articulo.index")->with("success", "Artículo actualizado correctamente");
+
     }
 
-    public function destroy(articulos $articulos) {
+    public function destroy($COD_ART) {
         //
+        $articulo = DB::table('articulos')->where('COD_ART', $COD_ART)->delete(); 
+        return redirect()->route("articulo.index")->with("success", "Artículo eliminado correctamente");
     }
 }

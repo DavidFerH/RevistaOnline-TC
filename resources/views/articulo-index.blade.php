@@ -23,6 +23,23 @@
                     <h5 class="card-title text-center">{{ $article->TITULO }}</h5>
                     <hr>
                     <p class="card-text"><b>Contenido del artículo:</b> </br> {{ $article->CONTENIDO }}</p>
+                    <hr>
+                        <form action="{{ route("articulo.edit", $article->COD_ART) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-warning btn-sm">
+                                <span class="fas fa-user-edit"></span>
+                            </button>
+                        </form>
+                        <form class="mt-2" action="{{ route("articulo.destroy", $article->COD_ART) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm">
+                                <span class="fas fa-user-times"></span>
+                            </button>
+                        </form>
+                    
+
+
                 </div>
             </div>
             @endforeach

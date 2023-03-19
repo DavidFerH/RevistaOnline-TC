@@ -28,6 +28,27 @@
                         <p class="card-text"><b>Código de revista:</b> {{ $revista->COD_REV }}</p>
                         <hr>
                         <small class="card-text"><b>Fecha publicacion:</b> {{ $revista->FECHA }}</small>
+
+
+                        <hr>
+                        <form action="{{ route("revista.edit", $revista->COD_REV) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-warning btn-sm">
+                                <span class="fas fa-user-edit"></span>
+                            </button>
+                        </form>
+                        <form class="mt-2" action="{{ route("revista.destroy", $revista->COD_REV) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm">
+                                <span class="fas fa-user-times"></span>
+                            </button>
+                        </form>
+                    
+
+
+
+
                     </div>
                 </div>
             @endforeach
