@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-12 mt-3">
             <div class="text-center">
-                <h3>Bienvenido a la revista online de la Univesidad Isabel I</h3>
+                <h3>{{ $message }}</h3>
             </div>
         </div>
     </div>

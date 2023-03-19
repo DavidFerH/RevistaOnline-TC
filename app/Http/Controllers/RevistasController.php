@@ -13,6 +13,18 @@ class RevistasController extends Controller {
         return view('revista-index', compact('revistas'));
     }
 
+    public function showMagazines() {
+        $revistas = Revistas::all();
+        return view('show-revistas', compact('revistas'));
+    }
+
+    public function readMagazine($COD_REV) {
+        $revista = DB::table('revistas')->where('COD_REV', $COD_REV)->first();
+        $articulos = DB::table('articulos')->where('COD_REV', $COD_REV)->get();
+
+        return view('revista-leer', compact('revista', 'articulos'));
+    }
+
     public function create() {
         return view('revista-create');
     }

@@ -14,6 +14,12 @@ class ArticulosController extends Controller {
         return view('articulo-index', compact('articles'));
     }
 
+    public function showArticles() {
+        $articles = Articulos::all();
+        $message = "ULTIMOS ARTÍCULOS";
+        return view('show-articulos', compact('articles', 'message'));
+    }
+
     public function create() {
         $authors = autor::all();
         return view('articulo-create', compact('authors'));      
@@ -25,8 +31,6 @@ class ArticulosController extends Controller {
         $articulo->cod_art = $request->post('COD_ART');
         $articulo->titulo = $request->post('title');
         $articulo->contenido = $request->post('article');
-        //FALTA EL SELECT DE REVISTAS AQUÍ
-        $articulo->cod_rev = 1; //$request->post('COD_REV');
         $articulo->autor()->attach($articulo->cod_art);
 
         $articulo->save();
@@ -40,20 +44,21 @@ class ArticulosController extends Controller {
     } 
 
     public function edit($COD_ART) {
-
         $articulo = DB::table('articulos')->where('COD_ART', $COD_ART)->first();
-        return view('articulo-update', compact('articulo'));
-
+        $revistas = Revistas::all();
+        return view('articulo-update', compact('articulo', 'revistas'));
     }
 
     public function update(Request $request, $COD_ART) {
         
         $titulo = $request->post('TITULO');
         $contenido = $request->post('CONTENIDO');
+        $COD_REV = $request->post('COD_REV');
 
         Articulos::where('COD_ART', $COD_ART)->update([
             'TITULO' => $titulo,
             'CONTENIDO' => $contenido,
+            'COD_REV' => $COD_REV
         ]);
 
         return redirect()->route("articulo.index")->with("success", "Artículo actualizado correctamente");

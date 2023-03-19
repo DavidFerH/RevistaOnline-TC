@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-12 mt-3">
             <div class="text-center">
-                <h3>GESTIÓN DE REVISTAS</h3>
+                <h3>REVISTAS</h3>
             </div>
         </div>
     </div>
@@ -28,20 +28,12 @@
                         <p class="card-text"><b>Código de revista:</b> {{ $revista->COD_REV }}</p>
                         <hr>
                         <small class="card-text"><b>Fecha publicacion:</b> {{ $revista->FECHA }}</small>
-
-
                         <hr>
-                        <form action="{{ route("revista.edit", $revista->COD_REV) }}" method="POST">
+                        {{-- <form action="{{ route("articulo.edit", $article->COD_ART) }}" method="POST"> --}}
+                        <form action="{{ route('revista.leer', $revista->COD_REV) }}" method="POST">
                             @csrf
                             <button class="btn btn-warning btn-sm">
-                                <span class="fas fa-user-edit"></span>
-                            </button>
-                        </form>
-                        <form class="mt-2" action="{{ route("revista.destroy", $revista->COD_REV) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-sm">
-                                <span class="fas fa-user-times"></span>
+                                <span class="fas fa-solid fa-book"></span> Leer revista
                             </button>
                         </form>
                     </div>

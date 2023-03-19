@@ -31,14 +31,11 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{{ route('index.index') }}">Home</a>
                         </li>
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" href="{{ route('revista.create') }}">Publicar</a>
-                        </li> --}}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Publicaciones</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('articulo.index') }}">Articulos</a></li>
-                                <li><a class="dropdown-item" href="magazines.php">Revistas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('revista.index') }}">Revistas</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -48,8 +45,8 @@
                                 <li><a class="dropdown-item" href="{{ route('articulo.create') }}">Creación de articulos</a></li>
                                 <li><a class="dropdown-item" href="{{ route('revista.create') }}">Creación de revistas</a></li>
                                 <li><a class="dropdown-item" href="{{ route('autor.index') }}">Gestión de autores</a></li>
-                                <li><a class="dropdown-item" href="{{ route('articulo.index') }}">Gestión de articulos</a></li>
-                                <li><a class="dropdown-item" href="{{ route('revista.index') }}">Gestión de revistas</a></li>
+                                <li><a class="dropdown-item" href="{{ route('articulo.editList') }}">Gestión de articulos</a></li>
+                                <li><a class="dropdown-item" href="{{ route('revista.editList') }}">Gestión de revistas</a></li>
                             </ul>
                         </li>
                     </ul>

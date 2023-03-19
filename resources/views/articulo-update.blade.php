@@ -21,9 +21,14 @@
                 <div class="col-4">
                     <input type="text" class="form-control" name="CONTENIDO" aria-label="CONTENIDO" value="{{ $articulo->CONTENIDO }}">
                 </div>
-
-
-                <div class="col-3 mt-2"></div>
+                <div class="col-4">
+                    <select id="COD_REV" class="form-select" name="COD_REV" aria-label="Default select example">
+                        <option value="">-- none --</option>
+                        @foreach ($revistas as $revista)
+                            <option value="{{ $revista['COD_REV']  }}"> {{ $revista['TITULO'] }} </option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="col-4 text-center">
                     <button type="submit" class="btn submitBtn">
                         <span class="fas fa-user-edit"></span> Editar articulo

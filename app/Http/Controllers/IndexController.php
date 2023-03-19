@@ -10,7 +10,8 @@ class IndexController extends Controller {
 
     public function index() {
         $articles = articulos::all();
-        return view('index', compact('articles'));
+        $message = "BIENVENIDOS A LA REVISTA ONLINE DE LA UI1";
+        return view('show-articulos', compact('articles', 'message'));
     }
 
     public function create() {
