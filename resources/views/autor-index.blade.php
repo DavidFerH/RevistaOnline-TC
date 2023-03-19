@@ -15,6 +15,16 @@
         </div>
     </div>
 
+    @if ($message = Session::get('success'))
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-success" role="alert">
+                    {{ $message }}
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="row">
         <div class="col-12 mt-2">
             @foreach ($autores as $autor)
@@ -30,6 +40,18 @@
                         <small class="card-text"><b>Creado:</b> {{ $autor->created_at }}</small>
                         </br>
                         <small class="card-text"><b>Ultima actualización:</b> {{ $autor->updated_at }}</small>
+                        <hr>
+                        <form action="{{ route("autor.edit", $autor->DNI) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-warning btn-sm">
+                                <span class="fas fa-user-edit"></span>
+                            </button>
+                        </form>
+                        <form class="mt-2" action="">
+                            <button class="btn btn-danger btn-sm">
+                                <span class="fas fa-user-times"></span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             @endforeach

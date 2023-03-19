@@ -31,7 +31,9 @@
                 </div>
                 <div class="col-3 mt-2"></div>
                 <div class="col-4 text-center">
-                    <button type="submit" class="btn submitBtn">Enviar</button>
+                    <button type="submit" class="btn submitBtn"><span class="fas fa-user-plus">
+                        </span> Añadir autor
+                    </button>
                 </div>
             </form>
         </div>

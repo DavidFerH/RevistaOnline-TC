@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\autor;
 use App\Models\revistas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AutorController extends Controller {
     public function index() {
@@ -32,13 +33,23 @@ class AutorController extends Controller {
         //
     }
 
-    public function edit(autor $autor) {
-        //
-        return view('actualizaAutor');
+    public function edit($DNI) {
+        $autor = DB::table('autor')->where('DNI', $DNI)->first();
+        return view('autor-update', compact('autor'));
     }
 
-    public function update(Request $request, autor $autor) {
-        //
+    public function update(Request $request, $DNI) {        
+        $nombre = $request->post('nombre');
+        $apellidos = $request->post('apellidos');
+        $descripcion = $request->post('descripcion');
+
+        autor::where('DNI', $DNI)->update([
+            'NOMBRE' => $nombre,
+            'APELLIDOS' => $apellidos,
+            'DESCRIPCION' => $descripcion
+        ]);
+
+        return redirect()->route("autor.index")->with("success", "Autor actualizado correctamente");
     }
 
     public function destroy(autor $autor) {

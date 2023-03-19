@@ -15,7 +15,7 @@ class ArticulosController extends Controller {
 
     public function create() {
         $authors = autor::all();
-        return view('articulo-create', compact('authors'));        
+        return view('articulo-create', compact('authors'));      
     }
 
     public function store(Request $request) {
