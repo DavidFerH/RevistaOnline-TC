@@ -32,6 +32,7 @@ Route::get('/autor/create', [AutorController::class, 'create']) -> name('autor.c
 Route::post('/autor/store', [AutorController::class, 'store']) -> name('autor.store');
 Route::post('/autor/edit/{DNI}', [AutorController::class, 'edit']) -> name('autor.edit');
 Route::post('/autor/update/{DNI}', [AutorController::class, 'update']) -> name('autor.update');
+Route::delete('/autor/destroy/{DNI}', [AutorController::class, 'destroy']) -> name('autor.destroy');
 
 Route::get('/revista', [RevistasController::class, 'index']) -> name('revista.index');
 Route::get('/revista/create', [RevistasController::class, 'create']) -> name('revista.create');

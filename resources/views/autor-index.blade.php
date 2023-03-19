@@ -47,7 +47,9 @@
                                 <span class="fas fa-user-edit"></span>
                             </button>
                         </form>
-                        <form class="mt-2" action="">
+                        <form class="mt-2" action="{{ route("autor.destroy", $autor->DNI) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
                             <button class="btn btn-danger btn-sm">
                                 <span class="fas fa-user-times"></span>
                             </button>

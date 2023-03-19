@@ -52,8 +52,10 @@ class AutorController extends Controller {
         return redirect()->route("autor.index")->with("success", "Autor actualizado correctamente");
     }
 
-    public function destroy(autor $autor) {
+    public function destroy($DNI) {
         //
-        return view('eliminaAutor');
+        $autor = DB::table('autor')->where('DNI', $DNI)->delete(); 
+        return redirect()->route("autor.index")->with("success", "Autor eliminado correctamente");
+        
     }
 }
