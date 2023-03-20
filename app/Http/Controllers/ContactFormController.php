@@ -5,23 +5,23 @@ use App\Mail\ContactForm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class ContactFormController extends Controller
-{
-public function form(){
+class ContactFormController extends Controller {
+    public function form(){
+        return view('contact');
+    }
 
-return view('contact');
-}
+    public function send(Request $request){
 
-public function send(Request $request){
+        $data = $request->validate([
+        'email' => 'required',
+        'asunto' => 'required',
+        'message' => 'required'
+        ]);
 
-$data = $request->validate([
-'email' => 'required',
-'asunto' => 'required',
-'message' => 'required'
-]);
+        Mail::to('pgmarticorena@gmail.com')->send(new ContactForm($data));
+        Mail::to('davidferreroherrera@gmail.com')->send(new ContactForm($data));
 
-Mail::to('pgmarticorena@gmail.com')->send(new ContactForm($data));
 
-return back()->with('data', $data)->with('message', ['success', 'Mensaje enviado correctamente']);
-}
+        return back()->with('data', $data)->with('message', ['success', 'Mensaje enviado correctamente']);
+    }
 }

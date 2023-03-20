@@ -2,6 +2,7 @@
 
 @section('CSS')
     <link rel="stylesheet" href="{{ url('css/index.css') }}">
+    <link rel="stylesheet" href="{{ url('css/createEntry.css') }}">
 @endsection
 
 @section('pageTitle', 'Bienvenidos a la revista de la UI1')
@@ -27,35 +28,32 @@
     <div class="col-12 mt-2">
 
         <form class="row needs-validation justify-content-center mt-4"  action="{{ route('contact.send') }}" method="POST">
-        @csrf
-        <div class="col-5">
+            @csrf
+            <div class="col-5">
                 <label class="col-sm-2 col-form-label">Email</label> 
                 <input type="email" class="form-control" name="email" placeholder="Email">
-        </div>
-        <div class="col-5">
-                <label class="col-sm-2 col-form-label">Asunto</label>
-
-                <input type="text" class="form-control" name="asunto" placeholder="Asunto">
-        </div>
-
-        <div class="col-10 mt-2">
-                    <div class="form-floating">
-                        <textarea class="form-control" name="message" placeholder="Escriba aqui su mensaje" id="content" style="height: 400px" required></textarea>
-                        <label for="floatingTextarea2">Escriba aquí su mensaje</label>
-                    </div>
-        </div>
-    </div>
-
-</div>
-
-
-<div class="col-3 mt-2"></div>
-<div class="col-4 text-center">
-                    <button type="submit" class="btn-primary"><span class="fas fa-user-plus">
-                        </span> Enviar mensaje
-                    </button>
                 </div>
-           
+                <div class="col-5">
+                        <label class="col-sm-2 col-form-label">Asunto</label>
+
+                        <input type="text" class="form-control" name="asunto" placeholder="Asunto">
+                </div>
+
+                <div class="col-10 mt-2">
+                            <div class="form-floating">
+                                <textarea class="form-control" name="message" placeholder="Escriba aqui su mensaje" id="content" style="height: 400px" required></textarea>
+                                <label for="floatingTextarea2">Escriba aquí su mensaje</label>
+                            </div>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="col-4 text-center">
+                <button type="submit" class="btn submitBtn">
+                    <span class="fas fa-user-plus"></span> Enviar mensaje
+                </button>
+            </div>
 </form>
 
 

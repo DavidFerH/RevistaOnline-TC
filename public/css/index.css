@@ -21,3 +21,12 @@ body {
 .nav-link:hover {
     color: rgb(88, 88, 88);
 }
+
+.main-container {
+    min-height: 100vh;
+}
+
+footer {
+    bottom: 0;
+    width: 100vw;
+}
