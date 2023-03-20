@@ -11,6 +11,6 @@ class articulos extends Model {
     public $timestamps = false; //para no meter updated_at and created_at
 
     public function autor() {
-        return $this->belongsToMany(Autor::class, 'autor_articulos', 'DNI', 'DNI');
+        return $this->belongsToMany(Autor::class, 'autor_articulos', 'COD_ART', 'DNI');
     }
 }

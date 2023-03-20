@@ -23,11 +23,19 @@
                 </div>
                 <div class="col-4">
                     <select id="COD_REV" class="form-select" name="COD_REV" aria-label="Default select example">
-                        <option value="">-- none --</option>
+                      
                         @foreach ($revistas as $revista)
                             <option value="{{ $revista['COD_REV']  }}"> {{ $revista['TITULO'] }} </option>
                         @endforeach
+                       
                     </select>
+
+                    <select id="author" class="form-select" name="author" aria-label="Default select example">
+                    @foreach ($authors as $author)
+                        <option value="{{ $author['DNI']  }}"> {{ $author['NOMBRE'] . " " . $author['APELLIDOS'] }} </option>
+                    @endforeach
+                </select>
+
                 </div>
                 <div class="col-4 text-center">
                     <button type="submit" class="btn submitBtn">

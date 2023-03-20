@@ -25,12 +25,15 @@
                     <input type="text" class="form-control" name="EDITORIAL" value="{{ $revista->EDITORIAL }}">
                     <input type="text" class="form-control" name="NUMERO" value="{{ $revista->NUMERO }}">
                     <input type="date" class="form-control" name="FECHA" value="{{ $revista->FECHA }}">
-                
+                <div class="col-4 mt-2">
+                    <input type="file" class="form-control" name="fileToUpload" placeholder="Portada" aria-label="Portada">
+                    <p class="card-text"><b>Portada: <img src="../../{{$revista->PORTADA}}" alt="Imagen revista" style="width:60%;"></p>
+                </div>                
 
                         <div class="col-3 mt-2"></div>
                 <div class="col-4 text-center">
                     <button type="submit" class="btn submitBtn">
-                        <span class="fas fa-user-edit"></span> Editar autor
+                        <span class="fas fa-user-edit"></span> Editar revista
                     </button>
                 </div>
 

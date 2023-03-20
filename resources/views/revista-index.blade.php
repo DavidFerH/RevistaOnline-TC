@@ -28,7 +28,7 @@
                         <p class="card-text"><b>Código de revista:</b> {{ $revista->COD_REV }}</p>
                         <hr>
                         <small class="card-text"><b>Fecha publicacion:</b> {{ $revista->FECHA }}</small>
-
+                        <p class="card-text"><b>Portada: <img src="../{{$revista->PORTADA}}" alt="Imagen revista" style="width:10%;"></p>
 
                         <hr>
                         <form action="{{ route("revista.edit", $revista->COD_REV) }}" method="POST">

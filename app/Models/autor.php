@@ -11,6 +11,6 @@ class autor extends Model
     protected $table = 'autor'; //sino eloquent mete la s al final, autors.
 
     public function articulos() {
-        return $this->belongsToMany(Articulos::class, 'autor_articulos', 'COD_ART', 'COD_ART');
+        return $this->belongsToMany(Articulos::class, 'autor_articulos', 'DNI', 'COD_ART');
     }
 }

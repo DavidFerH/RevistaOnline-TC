@@ -46,7 +46,8 @@ class ArticulosController extends Controller {
     public function edit($COD_ART) {
         $articulo = DB::table('articulos')->where('COD_ART', $COD_ART)->first();
         $revistas = Revistas::all();
-        return view('articulo-update', compact('articulo', 'revistas'));
+        $authors = autor::all();
+        return view('articulo-update', compact('articulo', 'revistas', 'authors'));
     }
 
     public function update(Request $request, $COD_ART) {
@@ -54,12 +55,18 @@ class ArticulosController extends Controller {
         $titulo = $request->post('TITULO');
         $contenido = $request->post('CONTENIDO');
         $COD_REV = $request->post('COD_REV');
+        $DNI = $request->post('author');
 
-        Articulos::where('COD_ART', $COD_ART)->update([
+        $articulo = new Articulos;
+
+        $articulo::where('COD_ART', $COD_ART)->update([
             'TITULO' => $titulo,
             'CONTENIDO' => $contenido,
             'COD_REV' => $COD_REV
         ]);
+
+
+       //NO HAY FORMA DE QUE ESTO FUNCIONE :-(  $articulo->autor()->attach([$DNI,$COD_ART, ]);
 
         return redirect()->route("articulo.index")->with("success", "Artículo actualizado correctamente");
 

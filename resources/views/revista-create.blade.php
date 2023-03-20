@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-7 mt-2"></div>
                 <div class="col-4 mt-2">
-                    <input type="file" class="form-control" name="coverImage" placeholder="Portada" aria-label="Portada"    >
+                    <input type="file" class="form-control" name="fileToUpload" placeholder="Portada" aria-label="Portada">
                 </div>
                 <div class="col-7 mt-2"></div>
                 <div class="col-4 text-center">

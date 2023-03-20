@@ -24,6 +24,7 @@
                     <p class="card-text"><b>Número de revista:</b> {{ $revista->NUMERO }}</p>
                     <p class="card-text"><b>Código de revista:</b> {{ $revista->COD_REV }}</p>
                     <p class="card-text"><b>Fecha publicacion:</b> {{ $revista->FECHA }}</p>
+                    <p class="card-text"><b>Portada: <img src="../../{{$revista->PORTADA}}" alt="Imagen revista" style="width:40%;"></p>
                     @if ($articulos)
                         <hr>
                         <h3 class="card-title text-center">Articulos relacionados</h3>
