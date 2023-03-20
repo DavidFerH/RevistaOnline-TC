@@ -4,6 +4,8 @@ use App\Http\Controllers\ArticulosController;
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RevistasController;
+use App\Http\Controllers\ContactFormController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,4 +48,7 @@ Route::post('/revista/edit/{DNI}', [RevistasController::class, 'edit']) -> name(
 Route::post('/revista/update/{DNI}', [RevistasController::class, 'update']) -> name('revista.update');
 Route::delete('/revista/destroy/{DNI}', [RevistasController::class, 'destroy']) -> name('revista.destroy');
 Route::post('/revista/leer/{COD_REV}', [RevistasController::class, 'readMagazine']) -> name('revista.leer');
+
+Route::get('contact', [ContactFormController::class, 'form'])->name('contact.form');
+Route::post('send-form', [ContactFormController::class, 'send'])->name('contact.send');
 
