@@ -38,16 +38,22 @@ class RevistasController extends Controller {
         $revista->editorial = $request->post('editorial');
         $revista->fecha = $request->post('publicationDate');
 
-        $target_dir = "images/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $image = $_FILES['fileToUpload'];
 
-        if ($this->subirImagen($target_file)) {
-            $revista->portada = $target_file; //"testfile"; //$request->post('coverImage'); TO-DO CREAR UPLOAD PARA LA IMAGEN
+        if ($image) {
+            $coverPath = $_SERVER['DOCUMENT_ROOT'] . '/SAOW Codigo/RevistaOnline-TC/public/covers' . '/' . $image['name'];
+
+            move_uploaded_file($image['tmp_name'], $coverPath);
+
+            $revista->portada = $coverPath; //"testfile"; //$request->post('coverImage'); TO-DO CREAR UPLOAD PARA LA IMAGEN
             $revista->save();
 
             return redirect()->route("revista.index")->with("success", "Revista añadida correctamente");
+        } else {
+            $coverPath = '';
+
+            return Redirect()->back()->withErrors(['msg' => 'Se ha producido un error al subir la imagen']);
         }
-        else return  Redirect::back()->withErrors(['msg' => 'Se ha producido un error al subir la imagen']);
     }
 
     public function show(revistas $revistas) {
@@ -60,7 +66,6 @@ class RevistasController extends Controller {
     }
 
     public function update(Request $request, $COD_REV) {
-  
         $titulo = $request->post('TITULO');
         $numero = $request->post('NUMERO');
         $editorial = $request->post('EDITORIAL');
@@ -71,8 +76,9 @@ class RevistasController extends Controller {
 
         if ($this->subirImagen($target_file)) {
             $portada = $target_file; //"testfile"; //$request->post('coverImage'); TO-DO CREAR UPLOAD PARA LA IMAGEN
+        } else {
+            return  redirect()->back()->withErrors(['msg' => 'Se ha producido un error al subir la imagen']);
         }
-        else return  Redirect::back()->withErrors(['msg' => 'Se ha producido un error al subir la imagen']);
 
         Revistas::where('COD_REV', $COD_REV)->update([
             'TITULO' => $titulo,
@@ -86,26 +92,7 @@ class RevistasController extends Controller {
     }
 
     public function destroy($COD_REV) {
-        $revista = DB::table('revistas')->where('COD_REV', $COD_REV)->delete(); 
+        DB::table('revistas')->where('COD_REV', $COD_REV)->delete(); 
         return redirect()->route("revista.index")->with("success", "Revista eliminada correctamente");
-    }
-
-    public function subirImagen($target_file){
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        
-        // Subida Imagen con validaciones
-          $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-          if($check !== false) {
-            $uploadOk = 1;
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-            } else {
-              echo "Se ha producido un error al subir la imagen";
-            }
-          } else {
-            echo "Imagen no válida";
-            $uploadOk = 0;
-          }
-        return $uploadOk;
     }
 }
